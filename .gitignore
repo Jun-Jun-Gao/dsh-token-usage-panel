@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# 依赖与构建产物（本插件零依赖，正常不会有）
+node_modules/
+*.log
+
+# 编辑器
+.vscode/
+.idea/
+
+# 本地预览产生的临时文件
+.cache/

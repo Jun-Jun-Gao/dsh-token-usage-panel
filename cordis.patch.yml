@@ -1,0 +1,5 @@
+# dsh-token-usage-panel 的 bundle 层：往 profile 里插入一行 loader 条目。
+# 安装为 bundle 后，DSH 会自动应用本文件；被禁用时整行一起消失。
+- insert:
+    - id: ui-settings-token-usage
+      name: 'dsh-token-usage-panel'

@@ -1,0 +1,29 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: 语法检查
+        run: |
+          node --check lib/index.js
+          node --check lib/client.js
+          node --check scripts/check-manifest.mjs
+
+      - name: 校验 DSH 插件清单
+        run: npm run check
+
+      - name: Host 侧扫描器自检（CI 上没有会话日志，应正常退出）
+        run: node lib/index.js
